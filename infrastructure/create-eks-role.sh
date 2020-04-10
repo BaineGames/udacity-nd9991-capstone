@@ -1,0 +1,1 @@
+aws cloudformation create-stack --stack-name eks-role --template-body file://stack-eks-role.yaml --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM" --region=us-west-2
