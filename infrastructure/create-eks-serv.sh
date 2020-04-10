@@ -1,0 +1,1 @@
+aws cloudformation create-stack --stack-name eks-serv --template-body https://amazon-eks.s3.us-west-2.amazonaws.com/cloudformation/2020-03-23/amazon-eks-vpc-private-subnets.yaml
