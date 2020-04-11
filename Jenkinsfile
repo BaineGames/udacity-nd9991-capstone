@@ -38,5 +38,10 @@ pipeline {
                 sh "docker rmi nginx:alpine"
             }
         }
+        stage("Test Kubernetes Connection"){
+            steps {
+                sh "kubectl get svc"
+            }
+        }
     }
 }
