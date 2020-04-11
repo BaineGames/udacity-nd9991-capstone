@@ -41,7 +41,6 @@ pipeline {
         stage("Test Kubernetes Connection"){
             steps {
                 withAWS(credentials: 'awscreds', region: 'us-west-2') {
-                    sh "aws eks --region eu-central-1 update-kubeconfig --name CapstoneEKS-VUUZkwHTDVPa"
                     sh "aws eks --region us-west-2 update-kubeconfig --name udacity-eks-cluster"
                     sh "kubectl get svc"
                 }
