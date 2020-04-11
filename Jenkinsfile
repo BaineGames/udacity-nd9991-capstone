@@ -23,9 +23,18 @@ pipeline {
                 }
             }
         }
-        stage("Push Image"){
+        stage('Push Image') {
+            steps{
+                script {
+                    docker.withRegistry( '', credentials ) {
+                        dockerImage.push()
+                    }
+                }
+            }
+        }
+        stage("Remove Image Locally"){
             steps {
-                sh 'docker images'
+                sh "docker rmi $registry:$BUILD_NUMBER"
             }
         }
     }
