@@ -14,8 +14,8 @@ pipeline {
         stage("Build Image"){
             steps {
                 sh '''
-                    docker build -t noahross/udacity-nd9991-capstone .
-                    docker images
+                    sudo docker build -t noahross/udacity-nd9991-capstone .
+                    sudo docker images
                 '''
             }
         }
