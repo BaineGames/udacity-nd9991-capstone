@@ -6,7 +6,7 @@ metadata:
     app: noahross-nd9991-capstone
   namespace: default
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: noahross-nd9991-capstone
