@@ -19,7 +19,7 @@ pipeline {
         stage("Build Image"){
             steps {
                 script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    dockerImage = docker.build registry + ":latest"
                 }
             }
         }
@@ -34,7 +34,8 @@ pipeline {
         }
         stage("Remove Image Locally"){
             steps {
-                sh "docker rmi $registry:$BUILD_NUMBER"
+                sh "docker rmi $registry:latest"
+                sh "docker rmi nginx:alpine"
             }
         }
     }
