@@ -13,10 +13,12 @@ pipeline {
         }
         stage("Build Image"){
             steps {
-                sh '''
-                    docker build -t noahross/udacity-nd9991-capstone .
-                    docker images
-                '''
+
+                app = docker.build("noahross/udacity-nd9991-capstone")
+                // sh '''
+                //     docker build -t noahross/udacity-nd9991-capstone .
+                //     docker images
+                // '''
             }
         }
 
