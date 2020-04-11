@@ -11,6 +11,11 @@ pipeline {
                 checkout scm
             }
         }
+        stage("Build Image"){
+            steps {
+                app = docker.build("noahross/udacity-nd9991-capstone")
+            }
+        }
 
     }
 }
