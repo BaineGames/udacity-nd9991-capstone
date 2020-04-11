@@ -9,16 +9,6 @@ pipeline {
         stage("Clone Repo"){
             checkout scm
         }
-        stage("Build Image"){
-        }
-        stage("Push Image"){
-            
-        }
-        stage("Set Context"){
-            
-        }
-        stage("Deploy Image"){
-            
-        }
+
     }
 }
