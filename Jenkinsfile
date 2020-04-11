@@ -2,6 +2,8 @@ pipeline {
     agent any
     environment{
         registry = "noahross/udacity-nd9991-capstone"
+        credentials = "dockercreds"
+        dockerImage = ''
     }
     stages {
         stage("Lint HTML") {
@@ -17,7 +19,7 @@ pipeline {
         stage("Build Image"){
             steps {
                 script {
-                    docker.build registry + ":$BUILD_NUMBER"
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
             }
         }stage("Push Image"){
