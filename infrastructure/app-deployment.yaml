@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: noahross-nd9991-capstone
+  labels:
+    app: noahross-nd9991-capstone
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: noahross-nd9991-capstone
+  strategy:
+    rollingUpdate:
+      maxSurge: 30%
+      maxUnavailable: 30%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: noahross-nd9991-capstone
+    spec:
+      containers:
+      - image: noahross/udacity-nd9991-capstone:latest
+        imagePullPolicy: Always
+        name: noahross-nd9991-capstone
+        ports:
+        - containerPort: 80
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: noahross-nd9991-capstone
+spec:
+  type: LoadBalancer
+  selector:
+    app: noahross-nd9991-capstone
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 443
