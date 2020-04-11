@@ -1,0 +1,1 @@
+aws cloudformation create-stack --stack-name eks-node-role --template-body https://amazon-eks.s3.us-west-2.amazonaws.com/cloudformation/2020-03-23/amazon-eks-nodegroup-role.yaml --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM" --region=us-west-2
