@@ -42,6 +42,7 @@ pipeline {
             steps {
                 withAWS(credentials: 'awscreds', region: 'us-west-2') {
                     sh "aws eks --region us-west-2 update-kubeconfig --name udacity-eks-cluster"
+                    sh "kubectl apply -f infrastructure/app-deployment.yaml"
                     sh "kubectl get svc"
                 }
             }
