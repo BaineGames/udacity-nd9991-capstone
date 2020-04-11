@@ -38,7 +38,7 @@ pipeline {
                 sh "docker rmi nginx:alpine"
             }
         }
-        stage("Test Kubernetes Connection"){
+        stage("Deploy to Kubernetes Cluster"){
             steps {
                 withAWS(credentials: 'awscreds', region: 'us-west-2') {
                     sh "aws eks --region us-west-2 update-kubeconfig --name udacity-eks-cluster"
