@@ -6,13 +6,19 @@ pipeline {
                 sh 'tidy -q -e src/*.html'
             }
         }
-        // stage("Upload to AWS") {
-        //     steps {
-        //         withAWS(region:'us-east-2',credentials:'aws-static') {
-        //             // do something
-        //             s3Upload(file:'index.html', bucket:'jenkins-test-aws-static-noah-ross', path:'index.html')
-        //         }
-        //     }
-        // }
+        stage("Clone Repo"){
+            checkout scm
+        }
+        stage("Build Image"){
+        }
+        stage("Push Image"){
+            
+        }
+        stage("Set Context"){
+            
+        }
+        stage("Deploy Image"){
+            
+        }
     }
 }
