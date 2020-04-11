@@ -40,6 +40,7 @@ pipeline {
         }
         stage("Test Kubernetes Connection"){
             steps {
+                sh "aws eks --region us-west-2 update-kubeconfig --name udacity-eks-cluster"
                 sh "kubectl get svc"
             }
         }
